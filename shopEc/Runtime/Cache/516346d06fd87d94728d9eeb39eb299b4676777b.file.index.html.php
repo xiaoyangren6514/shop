@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2016-06-18 22:29:36
+<?php /* Smarty version Smarty-3.1.6, created on 2016-06-19 15:38:24
          compiled from "D:/PhpstormProjects/shop/shopEc/Admin/View\Index\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:2864957655ad0aa0675-84903251%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '516346d06fd87d94728d9eeb39eb299b4676777b' => 
     array (
       0 => 'D:/PhpstormProjects/shop/shopEc/Admin/View\\Index\\index.html',
-      1 => 1466246338,
+      1 => 1466321900,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.6',
   'unifunc' => 'content_57655ad0ad81b',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_57655ad0ad81b')) {function content_57655ad0ad81b($_smarty_tpl) {?><!doctype html public "-//w3c//dtd xhtml 1.0 frameset//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-frameset.dtd">
 <html>
@@ -30,10 +30,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <title>管理中心 v1.0</title>
     </head>
     <frameset border=0 framespacing=0 rows="60, *" frameborder=0>
-        <frame name=head src="__CONTROLLER__/head.html" frameborder=0 noresize scrolling=no>
+        <frame name=head src="<?php echo @__CONTROLLER__;?>
+/head.html" frameborder=0 noresize scrolling=no>
             <frameset cols="170, *">
-                <frame name=left src="__CONTROLLER__/left.html" frameborder=0 noresize />
-                <frame name=right src="__CONTROLLER__/right.html" frameborder=0 noresize scrolling=yes />
+                <frame name=left src="<?php echo @__CONTROLLER__;?>
+/left.html" frameborder=0 noresize />
+                <frame name=right src="<?php echo @__CONTROLLER__;?>
+/right.html" frameborder=0 noresize scrolling=yes />
             </frameset>
     </frameset>
     <noframes>

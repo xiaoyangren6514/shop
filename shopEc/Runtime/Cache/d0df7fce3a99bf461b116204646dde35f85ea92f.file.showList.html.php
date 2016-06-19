@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2016-06-18 23:20:43
+<?php /* Smarty version Smarty-3.1.6, created on 2016-06-19 16:35:33
          compiled from "D:/PhpstormProjects/shop/shopEc/Admin/View\Goods\showList.html" */ ?>
 <?php /*%%SmartyHeaderCode:2550057656697391178-06097624%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd0df7fce3a99bf461b116204646dde35f85ea92f' => 
     array (
       0 => 'D:/PhpstormProjects/shop/shopEc/Admin/View\\Goods\\showList.html',
-      1 => 1466263242,
+      1 => 1466325329,
       2 => 'file',
     ),
   ),
@@ -17,9 +17,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.6',
   'unifunc' => 'content_576566974aa75',
+  'variables' => 
+  array (
+    'info' => 0,
+    'v' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_576566974aa75')) {function content_576566974aa75($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php if ($_valid && !is_callable('content_576566974aa75')) {function content_576566974aa75($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include 'D:\\PhpstormProjects\\shop\\ThinkPHP\\Library\\Vendor\\Smarty\\plugins\\modifier.date_format.php';
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -37,7 +43,8 @@ mine.css" type="text/css" rel="stylesheet" />
             <span>
                 <span style="float: left;">当前位置是：商品管理-》商品列表</span>
                 <span style="float: right; margin-right: 8px; font-weight: bold;">
-                    <a style="text-decoration: none;" href="__CONTROLLER__/add">【添加商品】</a>
+                    <a style="text-decoration: none;" href="<?php echo @__CONTROLLER__;?>
+/add">【添加商品】</a>
                 </span>
             </span>
         </div>
@@ -66,62 +73,41 @@ mine.css" type="text/css" rel="stylesheet" />
                         <td>创建时间</td>
                         <td align="center">操作</td>
                     </tr>
+                <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['info']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
+$_smarty_tpl->tpl_vars['v']->_loop = true;
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
+?>
                     <tr id="product1">
-                        <td>1</td>
-                        <td><a href="#">苹果（APPLE）iPhone 4S</a></td>
-                        <td>100</td>
-                        <td>3888</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['v']->value['goods_id'];?>
+</td>
+                        <td><a href="#"><?php echo $_smarty_tpl->tpl_vars['v']->value['goods_name'];?>
+</a></td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['v']->value['goods_number'];?>
+</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['v']->value['goods_price'];?>
+</td>
                         <td><img src="<?php echo @ADMIN_IMAGE_URL;?>
 20121018-174034-58977.jpg" height="60" width="60"></td>
                         <td><img src="<?php echo @ADMIN_IMAGE_URL;?>
 20121018-174034-97960.jpg" height="40" width="40"></td>
-                        <td>苹果apple</td>
-                        <td>2012-10-18 17:40:34</td>
-                        <td><a href="__CONTROLLER__/update">修改</a></td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['v']->value['goods_brand_id'];?>
+</td>
+                        <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['v']->value['goods_craete_time'],"%Y-%m-%d %T");?>
+</td>
+                        <td><a href="<?php echo @__CONTROLLER__;?>
+/update/goods_id/<?php echo $_smarty_tpl->tpl_vars['v']->value['goods_id'];?>
+">修改</a></td>
+                        <td><a href="<?php echo @__CONTROLLER__;?>
+/delete/goods_id/<?php echo $_smarty_tpl->tpl_vars['v']->value['goods_id'];?>
+">删除</a></td>
+<!--
                         <td><a href="javascript:;" onclick="delete_product(1)">删除</a></td>
+-->
                     </tr>
-                    <tr id="product2">
-                        <td>2</td>
-                        <td><a href="#">苹果（APPLE）iPhone 4</a></td>
-                        <td>100</td>
-                        <td>3100</td>
-                        <td><img src="<?php echo @ADMIN_IMAGE_URL;?>
-20121018-174248-28718.jpg" height="60" width="60"></td>
-                        <td><img src="<?php echo @ADMIN_IMAGE_URL;?>
-20121018-174248-87501.jpg" height="40" width="40"></td>
-                        <td>苹果apple</td>
-                        <td>2012-10-18 17:42:48</td>
-                        <td><a href="#">修改</a></td>
-                        <td><a href="javascript:;" onclick="delete_product(2)">删除</a></td>
-                    </tr>
-                    <tr id="product3">
-                        <td>3</td>
-                        <td><a href="#">苹果（APPLE）iPhone 4 8G版</a></td>
-                        <td>100</td>
-                        <td>1290</td>
-                        <td><img src="<?php echo @ADMIN_IMAGE_URL;?>
-20121018-174346-31424.jpg" height="60" width="60"></td>
-                        <td><img src="<?php echo @ADMIN_IMAGE_URL;?>
-20121018-174346-54660.jpg" height="40" width="40"></td>
-                        <td>苹果apple</td>
-                        <td>2012-10-18 17:43:46</td>
-                        <td><a href="#">修改</a></td>
-                        <td><a href="javascript:;" onclick="delete_product(3)">删除</a></td>
-                    </tr>
-                    <tr id="product4">
-                        <td>4</td>
-                        <td><a href="#">苹果（APPLE）iPhone 4S 16G版</a></td>
-                        <td>100</td>
-                        <td>987</td>
-                        <td><img src="<?php echo @ADMIN_IMAGE_URL;?>
-20121018-174455-91962.jpg" height="60" width="60"></td>
-                        <td><img src="<?php echo @ADMIN_IMAGE_URL;?>
-20121018-174455-10118.jpg" height="40" width="40"></td>
-                        <td>苹果apple</td>
-                        <td>2012-10-18 17:44:30</td>
-                        <td><a href="#" >修改</a></td>
-                        <td><a href="#" >删除</a></td>
-                    </tr>
+                <?php } ?>
                     <tr>
                         <td colspan="20" style="text-align: center;">
                             [1]
