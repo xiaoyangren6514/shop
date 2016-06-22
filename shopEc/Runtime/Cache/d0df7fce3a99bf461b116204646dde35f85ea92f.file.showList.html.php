@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2016-06-19 16:35:33
+<?php /* Smarty version Smarty-3.1.6, created on 2016-06-22 22:49:32
          compiled from "D:/PhpstormProjects/shop/shopEc/Admin/View\Goods\showList.html" */ ?>
 <?php /*%%SmartyHeaderCode:2550057656697391178-06097624%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd0df7fce3a99bf461b116204646dde35f85ea92f' => 
     array (
       0 => 'D:/PhpstormProjects/shop/shopEc/Admin/View\\Goods\\showList.html',
-      1 => 1466325329,
+      1 => 1466606811,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'info' => 0,
     'v' => 0,
+    'pageList' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -89,10 +90,12 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 </td>
                         <td><?php echo $_smarty_tpl->tpl_vars['v']->value['goods_price'];?>
 </td>
-                        <td><img src="<?php echo @ADMIN_IMAGE_URL;?>
-20121018-174034-58977.jpg" height="60" width="60"></td>
-                        <td><img src="<?php echo @ADMIN_IMAGE_URL;?>
-20121018-174034-97960.jpg" height="40" width="40"></td>
+                        <td><img src="<?php echo @SITE_URL;?>
+<?php echo $_smarty_tpl->tpl_vars['v']->value['goods_big_img'];?>
+" height="60" width="60"></td>
+                        <td><img src="<?php echo @SITE_URL;?>
+<?php echo $_smarty_tpl->tpl_vars['v']->value['goods_small_img'];?>
+" height="40" width="40"></td>
                         <td><?php echo $_smarty_tpl->tpl_vars['v']->value['goods_brand_id'];?>
 </td>
                         <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['v']->value['goods_craete_time'],"%Y-%m-%d %T");?>
@@ -110,7 +113,8 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
                 <?php } ?>
                     <tr>
                         <td colspan="20" style="text-align: center;">
-                            [1]
+                            <?php echo $_smarty_tpl->tpl_vars['pageList']->value;?>
+
                         </td>
                     </tr>
                 </tbody>

@@ -11,6 +11,8 @@ namespace Admin\Controller;
 
 use Model\GoodsModel;
 use Think\Controller;
+use Think\Image;
+use Think\Upload;
 
 class GoodsController extends Controller
 {
@@ -18,6 +20,26 @@ class GoodsController extends Controller
     function add(){
         $goods = D("goods");
         if(!empty($_POST)){
+            if($_FILES['goods_image']['error']==0){
+                $config = array(
+                    'rootPath'      =>  './Uploads/', //保存根路径
+                );
+                $up = new Upload($config);
+                $result = $up -> uploadOne($_FILES['goods_image']);
+                if($result){
+                    $goods_big_img =  $up -> rootPath.$result['savepath'].$result['savename'];
+                    $_POST['goods_big_img'] = $goods_big_img;
+                    // 生成缩略图
+                    $image = new Image();
+                    $image -> open($goods_big_img);
+                    $image -> thumb(120,120);
+                    $small_img = $up -> rootPath.$result['savepath']."small_img".$result['savename'];
+                    $image -> save($small_img);
+                    $_POST['goods_small_img'] = $small_img;
+                }else{
+                    dump($up -> getError());
+                }
+            }
             $result = $goods -> add($_POST);
             if($result){
                 $this -> redirect('showList',array(),2,"数据添加成功");
@@ -31,8 +53,15 @@ class GoodsController extends Controller
 
     function showList(){
         $goods = D("goods");
-        $info = $goods -> order("goods_id desc")->select();
+        $count = $goods -> count();
+        $per = 10;
+        $page_obj = new \Tools\page($count,$per);
+        $sql = "select * from sw_goods order by goods_id desc ".$page_obj -> limit;
+        $info = $goods -> query($sql);
+//        $info = $goods -> order("goods_id desc")->select();
 //        dump($info);
+        $pageList = $page_obj -> fpage();
+        $this -> assign("pageList",$pageList);
         $this -> assign("info",$info);
         $this -> display();
     }

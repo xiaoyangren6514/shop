@@ -13,4 +13,6 @@ define('JS_URL','/shopEc/Home/Public/js/');
 define('ADMIN_CSS_URL','/shopEc/Admin/Public/css/');
 define('ADMIN_IMAGE_URL','/shopEc/Admin/Public/img/');
 //echo "hello world";
+
+define('SITE_URL','http://localhost/shopEc/');
 include "../ThinkPHP/ThinkPHP.php";
